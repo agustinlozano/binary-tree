@@ -2,17 +2,17 @@
 
 /*  Output tree
 
-           Agustin
-            /   \
-           /     \
-      Celeste    Vicente
-        /  \        /  \ 
-       /    \      /    \
-    Ninito  null  null  null
-     /  \
-    /    \
-Carlos  Julieta
-
+                Agustin                       Nivel 0       
+                /     \
+               /       \
+              /         \
+        Celeste         Vicente               Nivel 1
+         /  \             /   \
+        /    \           /     \
+      null  Ninito    Carlos  Julieta         Nivel 2
+             /  \      /  \     /  \
+            /    \    /    \   /    \
+          null  null null null null null      Nivel 3
 */
 
 int main(void) {
@@ -22,6 +22,8 @@ int main(void) {
 
   FILE *fpointer;
   char data[MEMBERS][MAX_CHARS];
+
+  printf("\nAcceder archivo:");
 
   fpointer = fopen("input.txt", "r");
 
@@ -44,7 +46,7 @@ int main(void) {
     printf("\n");
   }
 
-  //Armamos el arbol
+  printf("\nLlenamos el arbol con los datos\n");
   /* Setear el root - Nivel 0 */
   root = (Node *)malloc(sizeof(Node));
   root -> data = data[0];
@@ -58,23 +60,36 @@ int main(void) {
 
   /* Nivel 2 */
   addNewNode(&root->left, data[3]);
-
-      //imprimir manualmente
-  printf("\n\nnivel cero: %sleft: %sright: %s\n",
-    root->data, root->left->data, root->right->data);
-
-  printf("\n\nnivel uno: %sderecha: %s",
-    root->left->data, root->left->right->data);
+  addNewNode(&root->right, data[4]);
+  addNewNode(&root->right, data[5]);
   
-  // printf("\n\nnivel dos: %sleft: %sright: %s\n",
-  // root->left->left->data, root->left->left->left->data, root->left->left->right->data);
+  int choice;
+  do {
+    printf("\nImprimir el arbol");
 
-  /* Nivel 3 */
-  addNewNode(&root->left->right, data[4]);
-  addNewNode(&root->left->right, data[5]);
+    choice = runMenu();
+    switch (choice) {
+      case 1:
+        printf("\n\nMostramos el arbol en preorder\n");
+        printPreorder(root);
+        break;
 
-  printf("\n\nMostramos el arbol en preorder\n");
-  preorder(root);
+      case 2:
+        printf("\n\nMostramos el arbol en inorder\n");
+        printInorder(root);
+        break;
+
+      case 3:
+        printf("\n\nMostramos el arbol en postorder\n");
+        printPostorder(root);
+        break;
+
+      default:
+        break;
+    }
+  } while (choice != 0);
+
+  printf("\nFin del programa.\n");
 
   return EXIT_SUCCESS;
 }
