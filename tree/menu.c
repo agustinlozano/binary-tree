@@ -4,9 +4,9 @@
 int runMenu(void) {
   int choice;
 
-  printf("\n\t1. Agregar un nodo");
-  printf("\n\t2. Eliminar un nodo");
-  printf("\n\t3. Imprimir la arbol");
+  printf("\n\t1. Mostra en preorder");
+  printf("\n\t2. Mostra en inorder");
+  printf("\n\t3. Mostra en postorder");
   printf("\n\t0. Salir");
   printf("\nSu eleccion: ");
   scanf(" %d", &choice);
