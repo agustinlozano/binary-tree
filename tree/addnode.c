@@ -77,7 +77,7 @@ void addNewNode(Node **n, char *data) {
 
 void setData(Node *n, char *data) {
   n -> data = data;
-  printf("\nEl nodo ahora contiene: %s", n->data);
+  printf("\tSe agrega un nodo con: %s", n->data);
 }
 
 void setLeaves(Node *n) {
