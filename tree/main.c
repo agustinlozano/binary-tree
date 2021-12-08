@@ -1,6 +1,6 @@
 #include "tree.h"
 
-/*  Output tree
+/* Built tree - Lines: 57-70
 
                 Agustin                       Nivel 0       
                 /     \
