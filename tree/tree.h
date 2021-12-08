@@ -16,6 +16,7 @@ typedef struct node {
 
 
 int runMenu(void);
+void breakup(void);
 
 void addNewNode(Node **n, char *data);
   void setData(Node *n, char *data);
@@ -24,5 +25,14 @@ void addNewNode(Node **n, char *data);
 void printPreorder(Node *n);
 void printInorder(Node *n);
 void printPostorder(Node *n);
+
+int runDataStorageMenu(void);
+void storePreorder(Node *n, FILE *fpointer);
+void storeInorder(Node *n, FILE *fpointer);
+void storePostorder(Node *n, FILE *fpointer);
+
+void storeMessagePre(FILE *fptr);
+void storeMessageIn(FILE *fptr);
+void storeMessagePost(FILE *fptr);
 
 #endif
