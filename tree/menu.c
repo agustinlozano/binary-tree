@@ -13,3 +13,21 @@ int runMenu(void) {
 
   return choice;
 }
+
+int runDataStorageMenu(void) {
+  int choice;
+  printf("\nDesea almacenar los datos en el archivo de salida?");
+  printf("\n1. Almacenar");
+  printf("\n2. Salir");
+  printf("\nSu respuesta: ");
+  scanf(" %d", &choice);
+  
+  return choice;
+}
+
+void breakup(void) {
+  char respuesta;
+  printf("\nPara continuar presione una tecla.");
+  printf("\nSu respuesta: ");
+  scanf(" %c", &respuesta);
+}
